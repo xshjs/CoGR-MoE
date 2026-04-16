@@ -100,7 +100,7 @@ Key outputs:
 
 - Stage1 LoRA: `mrag20_lora_out/best_lora/`
 - Stage2 CoGR module: `mrag20_cogr_out/cogr_modules.pt`
-- VMC checkpoint (Google Drive): [Direct Download](https://drive.google.com/file/d/16S_zO2eo5qK2YT7dNvkcu4P3CZfm91Bw/view?usp=drive_link)
+- MRAG checkpoint (Google Drive): [Direct Download](https://drive.google.com/uc?export=download&id=115qmOb6cdEky0r8N4_LoLnPYKxQ2If1H)
 
 ### 4.2 VMC main pipeline (Stage1 LoRA -> Stage2 CoGR, dev-only training)
 
@@ -116,7 +116,7 @@ Key outputs:
 
 - Stage1 LoRA: `vmc_staged_out/stage1_lora/best_lora/`
 - Stage2 CoGR module: `vmc_staged_out/stage2_cogr/cogr_modules.pt`
-- VMC checkpoint (Google Drive): \href{https://drive.google.com/file/d/16S_zO2eo5qK2YT7dNvkcu4P3CZfm91Bw/view?usp=drive_link}{Direct Download}
+- VMC checkpoint (Google Drive): [Direct Download](https://drive.google.com/file/d/16S_zO2eo5qK2YT7dNvkcu4P3CZfm91Bw/view?usp=drive_link)
 ---
 
 ## 5) Checkpoint Evaluation
