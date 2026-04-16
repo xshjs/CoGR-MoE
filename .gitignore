@@ -1,0 +1,61 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.eggs/
+*.egg-info/
+dist/
+build/
+
+# Virtual env
+venv/
+.venv/
+env/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / OS
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Secrets & local env
+.env
+.env.*
+*.pem
+
+# Large / downloaded weights (开源时请按需下载，勿提交)
+llava-1.5-7b-hf/
+qwen3-vl-30b-instruct/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# 训练产物与缓存（可按需保留本地，勿提交）
+ckpt/
+# 旧残缺目录已移除；vendor 在 models/moe-llava
+models/moe-llava/**/best_lora/
+embeddings/
+mrag_embeddings/
+results/
+
+# 打包与临时
+*.zip
+*.log
+nohup.out
+._____temp/
+
+# MRAG 数据（若克隆进仓库；通常数据外置）
+# mrag/data/
+models/moe-llava/
+*.zip
+*.tar.gz
+*.rar
+*.7z
