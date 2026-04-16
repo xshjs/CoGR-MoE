@@ -4,7 +4,7 @@
 
 **Venue:** ACL 2026 Findings
 
-[Figure 1 (PDF)](./Fig1.pdf)
+[Figure 1 (PNG)](./Fig1.png)
 
 ## 1) Create Environment
 
@@ -72,11 +72,13 @@ python scripts/pregenerate_probes.py \
   --output probes_train.jsonl
 ```
 
-### 3.2 MRAG probes (Qwen-VL pipeline)
+### 3.2 MRAG probes (OpenAI pipeline)
 
 ```bash
-python scripts/pregen_mrag_probes.py \
-  --output probes_mrag_test.jsonl
+python scripts/pregenerate_probes.py \
+  --data_path ../../MRAG-Bench/mrag_20_for_vmc \
+  --split dev \
+  --output probes_mrag_train.jsonl
 ```
 
 ---
@@ -100,26 +102,36 @@ Key outputs:
 - Stage2 CoGR module: `mrag20_cogr_out/cogr_modules.pt`
 - MRAG checkpoint (Google Drive): [Direct Download](https://drive.google.com/uc?export=download&id=115qmOb6cdEky0r8N4_LoLnPYKxQ2If1H)
 
-### 4.2 Train VMC staged pipeline (Stage1 LoRA -> Stage2 CoGR, dev-only training)
+### 4.2 VMC main pipeline (Stage1 LoRA -> Stage2 CoGR, dev-only training)
 
 ```bash
 python scripts/train_vmc_staged.py \
   --train_stage both \
   --data_path ../../VMCBench \
   --base_model_path llava-hf/llava-1.5-7b-hf \
-  --output_dir ./vmc_staged_out
+  --stage1_output_dir ./vmc_lora_out \
+  --stage2_output_dir ./vmc_cogr_out
 ```
 
-### 4.3 Train CoGR only (stage2)
+Key outputs:
+
+- Stage1 LoRA: `vmc_lora_out/best_lora/`
+- Stage2 CoGR module: `vmc_cogr_out/cogr_modules.pt`
+
+### 4.3 VMC CoGR only (Stage2, dev-only training)
 
 ```bash
 python scripts/train_vmc_staged.py \
   --train_stage stage2 \
   --data_path ../../VMCBench \
   --base_model_path llava-hf/llava-1.5-7b-hf \
-  --adapter_path ./vmc_staged_out/stage1_lora/best_lora \
-  --output_dir ./vmc_staged_out
+  --adapter_path ./vmc_lora_out/best_lora \
+  --stage2_output_dir ./vmc_cogr_out
 ```
+
+Key output:
+
+- Stage2 CoGR module: `vmc_cogr_out/cogr_modules.pt`
 
 ---
 
@@ -173,8 +185,4 @@ year={2026},
 url={https://openreview.net/forum?id=fct9C0uOA6}
 }
 ```
-
-
-
-
 
