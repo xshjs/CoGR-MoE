@@ -1,5 +1,3 @@
-# CoGR-MoE (Open Source Layout)
-
 **CoGR-MoE: Concept-Guided Expert Routing with Consistent Selection and Flexible Reasoning for Visual Question Answering**
 
 **Venue:** ACL 2026 Findings
