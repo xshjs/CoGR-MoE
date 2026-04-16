@@ -4,7 +4,7 @@
 
 **Venue:** ACL 2026 Findings
 
-[Figure 1 (PNG)](./Fig1.png)
+![Figure 1](./Fig1.png)
 
 ## 1) Create Environment
 
@@ -109,29 +109,13 @@ python scripts/train_vmc_staged.py \
   --train_stage both \
   --data_path ../../VMCBench \
   --base_model_path llava-hf/llava-1.5-7b-hf \
-  --stage1_output_dir ./vmc_lora_out \
-  --stage2_output_dir ./vmc_cogr_out
+  --output_dir ./vmc_staged_out
 ```
 
 Key outputs:
 
-- Stage1 LoRA: `vmc_lora_out/best_lora/`
-- Stage2 CoGR module: `vmc_cogr_out/cogr_modules.pt`
-
-### 4.3 VMC CoGR only (Stage2, dev-only training)
-
-```bash
-python scripts/train_vmc_staged.py \
-  --train_stage stage2 \
-  --data_path ../../VMCBench \
-  --base_model_path llava-hf/llava-1.5-7b-hf \
-  --adapter_path ./vmc_lora_out/best_lora \
-  --stage2_output_dir ./vmc_cogr_out
-```
-
-Key output:
-
-- Stage2 CoGR module: `vmc_cogr_out/cogr_modules.pt`
+- Stage1 LoRA: `vmc_staged_out/stage1_lora/best_lora/`
+- Stage2 CoGR module: `vmc_staged_out/stage2_cogr/cogr_modules.pt`
 
 ---
 
@@ -185,4 +169,3 @@ year={2026},
 url={https://openreview.net/forum?id=fct9C0uOA6}
 }
 ```
-
